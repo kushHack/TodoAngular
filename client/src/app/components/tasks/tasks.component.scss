@@ -1,0 +1,41 @@
+.app-tasks {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 3rem 1rem;
+  align-items: center;
+  border-bottom: 1px solid #d3d3d3;
+}
+.task-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.action-cont {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-direction: column;
+
+  button {
+    background-color: white;
+    border: none;
+  }
+  span {
+    font-size: 1.75rem;
+    color: red;
+  }
+}
+
+input[type="checkbox"] {
+  accent-color: red;
+}
+
+.btn-cont {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.timestamp {
+  font-size: 0.75rem;
+}

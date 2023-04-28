@@ -1,0 +1,33 @@
+<div class="app-tasks">
+  <div class="task-wrapper">
+    <input
+      class="checkbox"
+      type="checkbox"
+      *ngIf="!task.status; else checked"
+      (click)="onCheck()"
+    />
+    <ng-template #checked>
+      <input class="checkbox" type="checkbox" checked (click)="onCheck()" />
+    </ng-template>
+    <div class="task" *ngIf="task.status; else notchecked">
+      <s>{{ task.task | titlecase }}</s>
+    </div>
+    <ng-template #notchecked>
+      {{ task.task | titlecase }}
+    </ng-template>
+  </div>
+
+  <div class="action-cont">
+    <div class="btn-cont">
+      <button (click)="openPopUp()">
+        <span style="color: #32cd32" class="material-symbols-outlined">
+          edit
+        </span>
+      </button>
+      <button (click)="deleteTask()">
+        <span class="material-symbols-outlined"> delete </span>
+      </button>
+    </div>
+    <div class="timestamp">{{ task.updatedAt | date : "shortTime" }}</div>
+  </div>
+</div>

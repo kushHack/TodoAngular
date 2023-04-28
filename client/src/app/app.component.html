@@ -1,0 +1,24 @@
+<div class="app">
+  <app-popup />
+  <div class="top">
+    <button class="add-button" (click)="showInput()" *ngIf="isAddActive">
+      <span class="material-symbols-outlined"> add </span>
+    </button>
+    <app-header [tasksCount]="taskCount" />
+    <div class="action-selector">
+      <div class="action-wrapper">
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >TODO
+        </a>
+        <a routerLink="active" routerLinkActive="active">ACTIVE</a>
+        <a routerLink="inactive" routerLinkActive="active">INACTIVE</a>
+      </div>
+    </div>
+  </div>
+  <div class="bottom">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+$secondary: #ff6565;
+$onSecondary: #ffffff;
+.app {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.top {
+  width: 100%;
+}
+.bottom {
+  width: 100%;
+  flex: 1;
+  // background-color: #ff6565;
+  overflow-y: scroll;
+}
+
+.add-button {
+  padding: 1rem;
+  border-radius: 50%;
+  border: none;
+  background-color: $secondary;
+  color: $onSecondary;
+  position: absolute;
+  top: 5.5rem;
+  right: 2.5rem;
+}
+
+.action-selector {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.action-wrapper {
+  display: flex;
+  gap: 2rem;
+
+  a {
+    text-decoration: none;
+    color: gray;
+  }
+
+  .active {
+    color: #52acff;
+  }
+}

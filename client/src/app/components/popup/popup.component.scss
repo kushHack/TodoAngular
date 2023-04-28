@@ -1,0 +1,50 @@
+.popup {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba($color: #000000, $alpha: 0.35);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-cont {
+  display: flex;
+  gap: 1rem;
+}
+.green {
+  background-color: #32cd32;
+  border: solid #32cd32;
+}
+.red {
+  background-color: #ff6565;
+  border: solid #ff6565;
+}
+.input-cont {
+  background-color: white;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 1.25rem;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    textarea {
+      resize: none;
+      flex: 1;
+      font-size: 1rem;
+      padding: 0.5rem;
+      width: 250px;
+      border: solid 1px #d3d3d3;
+    }
+    button {
+      padding: 1rem;
+      flex: 1;
+      color: white;
+      font-weight: 700;
+    }
+  }
+}
