@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 
 import { TasksComponent } from './components/tasks/tasks.component';
-import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskdataService } from './services/taskdata.service';
 import { PopupService } from './services/popup.service';
 import { TodoComponent } from './todo/todo.component';
@@ -27,7 +26,7 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     TasksComponent,
-    TaskListComponent,
+
     TodoComponent,
     ActiveComponent,
     InactiveComponent,

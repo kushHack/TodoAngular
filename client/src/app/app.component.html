@@ -1,10 +1,13 @@
 <div class="app">
   <app-popup />
   <div class="top">
-    <button class="add-button" (click)="showInput()" *ngIf="isAddActive">
-      <span class="material-symbols-outlined"> add </span>
-    </button>
-    <app-header [tasksCount]="taskCount" />
+    <ng-container *ngIf="data$ | async as data">
+      <button class="add-button" (click)="showInput()" *ngIf="data.isAddActive">
+        <span class="material-symbols-outlined"> add </span>
+      </button>
+      <app-header [tasksCount]="data.taskCount" />
+    </ng-container>
+
     <div class="action-selector">
       <div class="action-wrapper">
         <a

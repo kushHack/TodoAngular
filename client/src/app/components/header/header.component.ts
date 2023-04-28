@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { ITasks } from '../../interfaces';
 
 @Component({
   selector: 'app-header',

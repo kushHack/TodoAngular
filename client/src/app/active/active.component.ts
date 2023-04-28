@@ -12,13 +12,11 @@ import { TaskdataService } from '../services/taskdata.service';
 export class ActiveComponent implements OnInit, OnDestroy {
   tasks: ITasks[] = [];
   filteredTask: ITasks[] = [];
-  // isHidden: boolean = true;
 
   private firstTaskSub: Subscription = new Subscription();
 
   constructor(
     private taskDataService: TaskdataService,
-    private popUpService: PopupService
   ) {}
 
   ngOnInit() {
@@ -28,10 +26,6 @@ export class ActiveComponent implements OnInit, OnDestroy {
       this.taskDataService.taskCount.next(this.tasks.length);
       this.taskDataService.isAddActive.next(false);
     });
-
-    // this.popUpService.inputPopUp.subscribe(
-    //   (isHidden) => (this.isHidden = isHidden)
-    // );
   }
 
   ngOnDestroy() {

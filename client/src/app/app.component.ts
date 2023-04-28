@@ -1,21 +1,20 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ITasks } from './interfaces';
 import { TaskdataService } from './services/taskdata.service';
 import { PopupService } from './services/popup.service';
-import { Subscription } from 'rxjs';
+import { Observable, combineLatest, map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
   title = 'training';
   tasks: ITasks[] = [];
-  isAddActive: boolean = true;
-  taskCount: number = -1;
-  private addActiveSub: Subscription = new Subscription();
-  private taskCountSub: Subscription = new Subscription();
+  isAddActive$!: Observable<boolean>;
+  taskCount$!: Observable<number>;
+  data$!: Observable<{ isAddActive: boolean; taskCount: number }>;
 
   constructor(
     private taskDataService: TaskdataService,
@@ -29,17 +28,14 @@ export class AppComponent implements OnInit, OnDestroy {
       this.taskDataService.taskCount.next(tasks.length);
       this.taskDataService.isAddActive.next(true);
     });
-    this.taskCountSub = this.taskDataService.taskCount.subscribe(
-      (taskcount) => (this.taskCount = taskcount)
+    this.taskCount$ = this.taskDataService.taskCount;
+    this.isAddActive$ = this.taskDataService.isAddActive;
+    this.data$ = combineLatest([this.isAddActive$, this.taskCount$]).pipe(
+      map(([isAddActive, taskCount]) => ({
+        isAddActive,
+        taskCount,
+      }))
     );
-    this.addActiveSub = this.taskDataService.isAddActive.subscribe(
-      (isAddActive) => (this.isAddActive = isAddActive)
-    );
-  }
-
-  ngOnDestroy(): void {
-    this.addActiveSub.unsubscribe();
-    this.taskCountSub.unsubscribe();
   }
 
   showInput() {
