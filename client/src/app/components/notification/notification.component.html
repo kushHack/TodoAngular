@@ -1,0 +1,19 @@
+<ng-container *ngIf="notification$ | async as notification">
+  <div [ngClass]="'notification-wrapper ' + notificationStatus">
+    <div [ngClass]="'notification ' + notification.notifType">
+      <span class="material-symbols-outlined close" (click)="closePopup()">
+        close
+      </span>
+      <span class="material-symbols-outlined material-symbols-fill img">
+        {{ notification.notifIcon }}
+      </span>
+
+      <div>
+        <div class="notif-title">{{ notification.notifType }}</div>
+        <div class="notif-msg">{{ notification.notifMsg }}</div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<!-- *ngIf="!notificationStatus" -->

@@ -1,7 +1,7 @@
 <div class="popup" *ngIf="!isHidden">
   <div class="input-cont">
     <label>{{ isUpdating.status ? "Update" : "Add" }} Task</label>
-    <form [formGroup]="taskForm">
+    <form [formGroup]="taskForm" (ngSubmit)="addTasks()">
       <textarea
         (input)="onInputChange($event)"
         formControlName="task"
@@ -9,7 +9,7 @@
       ></textarea>
       <div class="button-cont">
         <button class="red" (click)="closePopUp()">Cancel</button>
-        <button class="green" (click)="addTasks($event)">
+        <button class="green" type="submit">
           {{ isUpdating.status ? "Update" : "Add" }} Task
         </button>
       </div>

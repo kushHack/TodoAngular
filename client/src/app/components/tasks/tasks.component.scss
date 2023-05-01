@@ -13,7 +13,7 @@
 .action-cont {
   display: flex;
   align-items: flex-end;
-  gap: 2rem;
+  gap: 1rem;
   flex-direction: column;
 
   button {
@@ -24,6 +24,10 @@
     font-size: 1.75rem;
     color: red;
   }
+}
+
+.task-msg {
+  font-size: 1.25rem;
 }
 
 input[type="checkbox"] {

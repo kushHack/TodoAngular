@@ -10,10 +10,12 @@
       <input class="checkbox" type="checkbox" checked (click)="onCheck()" />
     </ng-template>
     <div class="task" *ngIf="task.status; else notchecked">
-      <s>{{ task.task | titlecase }}</s>
+      <span class="task-msg"
+        ><s>{{ task.task | titlecase }}</s></span
+      >
     </div>
     <ng-template #notchecked>
-      {{ task.task | titlecase }}
+      <span class="task-msg">{{ task.task | titlecase }}</span>
     </ng-template>
   </div>
 

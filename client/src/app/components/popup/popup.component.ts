@@ -36,20 +36,27 @@ export class PopupComponent {
     );
   }
 
-  addTasks(event: Event) {
-    event.preventDefault();
-    if (this.isUpdating.status) {
-      this.taskDataService.updateTask({
-        task: this.task,
-        id: this.isUpdating.id!,
-      });
-    } else {
-      this.taskDataService.addTask({ task: this.task, status: false });
-    }
+  addTasks() {
+    if (this.taskForm.get('task')?.valid) {
+      if (this.isUpdating.status) {
+        this.taskDataService.updateTask({
+          task: this.task,
+          id: this.isUpdating.id!,
+        });
+      } else {
+        this.taskDataService.addTask({ task: this.task, status: false });
+      }
 
-    this.taskForm.get('task')?.reset();
-    this.task = '';
-    this.popUpService.setPopUp(true);
+      this.taskForm.get('task')?.reset();
+      this.task = '';
+      this.popUpService.setPopUp(true);
+    } else {
+      this.taskDataService.setNotification({
+        notifType: 'warning',
+        notifMsg: 'Please enter a task',
+        notifIcon: 'info',
+      });
+    }
   }
 
   onInputChange(event: Event) {

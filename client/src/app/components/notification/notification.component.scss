@@ -1,0 +1,89 @@
+.notification-wrapper {
+  position: fixed;
+  top: 50px;
+  right: 0;
+  z-index: 999;
+}
+.notification {
+  background-color: white;
+  height: 100px;
+  width: 350px;
+  position: relative;
+  border-radius: 8px 0 0 8px;
+  box-shadow: 15px 20px 30px rgba(0, 0, 0, 0.25);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding-inline: 20px 30px;
+  .img {
+    font-size: 3.5rem;
+  }
+  .notif-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  .notif-msg {
+    font-size: 1rem;
+  }
+}
+
+.error {
+  border-left: #ff6565 8px solid;
+  display: flex;
+  .img {
+    color: #ff6565;
+  }
+}
+.success {
+  border-left: greenyellow 8px solid;
+  display: flex;
+  .img {
+    color: greenyellow;
+  }
+}
+.warning {
+  border-left: #ffea00 8px solid;
+  display: flex;
+  .img {
+    color: #ffea00;
+  }
+}
+
+.show {
+  display: block;
+  animation: show_slide 1s ease-in-out forwards;
+}
+
+@keyframes show_slide {
+  0% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(-8%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+.hide {
+  animation: hide_slide 1s ease-in-out forwards;
+  // display: none;
+}
+
+@keyframes hide_slide {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  z-index: 999;
+}
+.close:hover {
+  cursor: pointer;
+}

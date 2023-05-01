@@ -4,3 +4,9 @@ export interface ITasks {
   _id?: string;
   updatedAt?: Date;
 }
+
+export interface INotification {
+  notifType: string;
+  notifMsg: string;
+  notifIcon: string;
+}

@@ -39,7 +39,7 @@ const updateTask = async (req, res) => {
   const { id } = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "No such task wxists" });
+    return res.status(404).json({ error: "No such task exists" });
   }
 
   const taskReq = await Tasks.findOneAndUpdate(
