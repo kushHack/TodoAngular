@@ -10,7 +10,7 @@ exports.connect = async () => {
       },
       (err) => {
         if (err) {
-          console.log("database error");
+          console.log("database error", err);
         } else {
           console.log("database Connected");
         }

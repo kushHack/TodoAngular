@@ -7,7 +7,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 
-// import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskdataService } from './services/taskdata.service';
 import { PopupService } from './services/popup.service';
 import { TodoComponent } from './todo/todo.component';
@@ -17,6 +16,8 @@ import { InactiveModule } from './inactive/inactive.module';
 import { TodoModule } from './todo/todo.module';
 import { NotificationComponent } from './components/notification/notification.component';
 import { PopupComponent } from './components/popup/popup.component';
+
+
 
 const appRoutes: Routes = [
   { path: '', component: TodoComponent },
@@ -45,7 +46,7 @@ const appRoutes: Routes = [
     TodoModule,
     ComponentModule,
   ],
-  providers: [TaskdataService, PopupService],
+  providers: [TaskdataService, PopupService,],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

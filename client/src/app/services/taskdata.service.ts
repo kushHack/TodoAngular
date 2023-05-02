@@ -36,7 +36,7 @@ export class TaskdataService {
       next: (task: ITasks[]) => {
         this.tasks.next(task);
       },
-      error: (error) => {
+      error: (error: Error) => {
         console.log(error);
       },
     });
@@ -52,10 +52,10 @@ export class TaskdataService {
           notifIcon: 'check_circle',
         });
       },
-      error: (error) => {
+      error: (error: Error) => {
         this.setNotification({
           notifType: 'error',
-          notifMsg: error,
+          notifMsg: error.message,
           notifIcon: 'cancel',
         });
       },
@@ -72,11 +72,11 @@ export class TaskdataService {
           notifIcon: 'check_circle',
         });
       },
-      error: (error) => {
+      error: (error: Error) => {
         console.log(error);
         this.setNotification({
           notifType: 'error',
-          notifMsg: error,
+          notifMsg: error.message,
           notifIcon: 'cancel',
         });
       },
@@ -93,11 +93,11 @@ export class TaskdataService {
           notifIcon: 'check_circle',
         });
       },
-      error: (error) => {
+      error: (error: Error) => {
         console.log('error', error);
         this.setNotification({
           notifType: 'error',
-          notifMsg: error.toString(),
+          notifMsg: error.message,
           notifIcon: 'cancel',
         });
       },
